@@ -1,15 +1,19 @@
 import {AdminResource} from '../../services'
 
 export default {
-  data() {
-    return {
-      cif: ''
-    }
-  },
+  data: () => ({
+    cif: '',
+    endpoint: ''
+  }),
   methods: {
-    login: function () {
-      let code = this.$route.query.challenge_code
-      AdminResource.acceptLoginRequest(code, this.cif)
-    }
+    login() {
+      let code = this.$route.query.login_challenge
+      AdminResource.acceptLoginRequest(this.endpoint, code, this.cif)
+    },
+  },
+  mounted() {
+    console.log(this.$config.oauthAdminEndpoint)
+    this.endpoint = this.$config.oauthAdminEndpoint
+    console.log("login mount")
   }
 }

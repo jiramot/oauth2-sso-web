@@ -7,6 +7,9 @@ import Vue from 'vue'
 import Login from "~/components/login/index.vue";
 
 export default Vue.extend({
-  components: {Login}
+  components: {Login},
+  mounted() {
+    console.log("page mount")
+  }
 })
 </script>
