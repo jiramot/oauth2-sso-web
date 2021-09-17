@@ -12,8 +12,7 @@ export default {
     },
   },
   mounted() {
-    console.log(this.$config.oauthAdminEndpoint)
-    this.endpoint = this.$config.oauthAdminEndpoint
+    // this.endpoint = this.$config.oauthAdminEndpoint
     console.log("login mount")
   }
 }

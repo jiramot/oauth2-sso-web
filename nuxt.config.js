@@ -32,6 +32,7 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
+    '@nuxtjs/proxy'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -40,7 +41,16 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
 
-  publicRuntimeConfig: {
-    oauthAdminEndpoint: process.env.OAUTH_ADMIN_ENDPOINT || "http://localhost:8081"
+  // publicRuntimeConfig: {
+  //   oauthAdminEndpoint: process.env.OAUTH_ADMIN_ENDPOINT || "http://localhost:8081"
+  // },
+
+  proxy: {
+    '/api': {
+      target: 'http://localhost:8081',
+      secure: false,
+      pathRewrite: {"^/api/": ""}
+    },
   }
+
 }
