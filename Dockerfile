@@ -5,8 +5,6 @@ RUN npm install
 COPY . .
 
 RUN npm run build && npm run generate
-#EXPOSE 3000
-#ENTRYPOINT npm run dev
 
 FROM nginx:alpine
 RUN apk add bash
